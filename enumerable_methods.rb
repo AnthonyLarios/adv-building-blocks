@@ -47,4 +47,17 @@ module Enumerable
 		end
 		return false
 	end
+
+	def my_none?
+		if block_given?
+			for item in self
+				return false if yield(item)
+			end
+		else
+			for item in self
+				return false if item
+			end
+		end
+		return true
+	end
 end
