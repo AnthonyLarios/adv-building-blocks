@@ -76,4 +76,13 @@ module Enumerable
 		end
 		return count
 	end
+
+	def my_map
+		return self unless block_given?
+		array = []
+		for item in self
+			array << yield(item)
+		end
+		return array
+	end
 end
