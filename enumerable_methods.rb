@@ -60,4 +60,20 @@ module Enumerable
 		end
 		return true
 	end
+
+	def my_count (object = nil)
+		count = 0
+		if block_given?
+			for item in self
+				count += 1 if yield(item)
+			end
+		elsif object.nil?
+			count = self.length
+		else
+			for item in self
+				count += 1 if item == object
+			end
+		end
+		return count
+	end
 end
