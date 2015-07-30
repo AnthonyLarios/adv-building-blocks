@@ -79,11 +79,11 @@ module Enumerable
 		return count
 	end
 
-	def my_map
+	def my_map(&block)
 		return self unless block_given?
 		array = []
 		for item in self
-			array << yield(item)
+			array << block.call(item)
 		end
 		return array
 	end
