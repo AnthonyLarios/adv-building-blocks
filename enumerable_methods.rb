@@ -85,4 +85,13 @@ module Enumerable
 		end
 		return array
 	end
+
+	def my_inject(initial = nil)
+		total = initial.nil? ? self.first : initial
+		range = initial.nil? ? self.my_count - 1 : self.my_count
+		for item in self.last(range)
+			total = yield(total, item)
+		end
+		return total
+	end
 end
