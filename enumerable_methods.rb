@@ -68,7 +68,9 @@ module Enumerable
 				count += 1 if yield(item)
 			end
 		elsif object.nil?
-			count = self.length
+			for item in self
+				count += 1
+			end
 		else
 			for item in self
 				count += 1 if item == object
